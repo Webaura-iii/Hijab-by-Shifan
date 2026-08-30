@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hijab by Shifan — BE EXCLUSIVE. BE BOLD. BE YOU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ADDED TO CART TOAST NOTIFICATION -->
+    <div id="cart-toast" class="cart-toast">
+        <div class="toast-check-icon">
+            <svg viewBox="0 0 24 24" class="icon"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        <div class="toast-content">
+            <div class="toast-title">Added to cart</div>
+            <div class="toast-subtitle" id="toast-product-name">Product Name</div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" onclick="showView('home'); return false;" class="logo-container">
+                <div class="logo-badge">HbS</div>
+                <div class="logo-text">
+                    <h1>Hijab by Shifan</h1>
+                    <span>BE EXCLUSIVE. BE BOLD. BE YOU</span>
+                </div>
+            </a>
+            
+            <!-- ADD MOBILE MENU TOGGLE BUTTON -->
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+                <svg class="icon menu-open-icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                <svg class="icon menu-close-icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+
+            <nav id="nav-menu">
+                <ul>
+                    <li><a href="#" id="nav-home" class="active" onclick="showView('home'); return false;">Home</a></li>
+                    <li><a href="#" id="nav-shop" onclick="showView('shop'); return false;">Shop</a></li>
+                    <li><a href="#" id="nav-cart" onclick="showView('cart'); return false;">Cart</a></li>
+                    <li><a href="admin.html">Admin</a></li>
+                    <li>
+                        <button class="cart-icon-btn" onclick="showView('cart')">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                            <span class="cart-badge" id="cart-count">0</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- HOME VIEW -->
+        <section id="view-home" class="view-section active-view">
+            <div class="hero">
+                <div class="hero-grid">
+                    <div>
+                        <span class="hero-subtitle">HELLO HIJABI</span>
+                        <h2 class="hero-title">Be exclusive.<br>Be bold.<br><em>Be you.</em></h2>
+                        <p class="hero-desc">Premium hijabs, hampers, and bouquets from Bhiwandi — made for the woman who already knows her silhouette.</p>
+                        <div class="hero-buttons">
+                            <button class="btn-primary" onclick="showView('shop')">Shop now &rarr;</button>
+                            <button class="btn-secondary" onclick="showView('shop'); filterShopCategory('Hampers');">View hampers</button>
+                        </div>
+                        <p class="hero-meta">5k+ orders · Pan India · Prepaid only</p>
+                    </div>
+                    <div class="hero-image-wrapper">
+                        <div class="hero-img-card">
+                            <img src="/Product images/hero.jpg" alt="Tulip Hijab Bouquet">
+                            <div class="hero-img-floating-tag">
+                                <div class="logo-badge" style="width:28px;height:28px;font-size:11px;">HbS</div>
+                                <div style="font-size:11px; text-align:left;">
+                                    <strong>Hijab by Shifan</strong><br>
+                                    <span style="color:var(--text-muted)">BHIWANDI ATELIER</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-pills-bar">
+                <div class="pills-scroll">
+                    <div class="pill-item" onclick="showView('shop'); filterShopCategory('Hijabs');">
+                        <div class="pill-avatar"><img src="/Product images/noir-silk.jpg" alt="Hijabs"></div>
+                        <span class="pill-title">Premium Hijabs</span>
+                    </div>
+                    <div class="pill-item" onclick="showView('shop'); filterShopCategory('Bouquets');">
+                        <div class="pill-avatar"><img src="/Product images/tulip-bouquet.jpg" alt="Bouquets"></div>
+                        <span class="pill-title">Hijab Bouquets</span>
+                    </div>
+                    <div class="pill-item" onclick="showView('shop'); filterShopCategory('Hampers');">
+                        <div class="pill-avatar"><img src="/Product images/luxury-hamper.jpg" alt="Hampers"></div>
+                        <span class="pill-title">Luxury Hampers</span>
+                    </div>
+                    <div class="pill-item" onclick="showView('shop'); filterShopCategory('Pins');">
+                        <div class="pill-avatar"><img src="/Product images/pearl-pins.jpg" alt="Pins"></div>
+                        <span class="pill-title">Hijab Pins</span>
+                    </div>
+                    <div class="pill-item" onclick="showView('shop'); filterShopCategory('Nameplates');">
+                        <div class="pill-avatar"><img src="/Product images/nameplate.jpg" alt="Nameplates"></div>
+                        <span class="pill-title">Nameplates</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="shop-section">
+                <div class="section-header">
+                    <div>
+                        <span class="section-subtitle">THE EDIT</span>
+                        <h3 class="section-title">Featured pieces</h3>
+                    </div>
+                    <a href="#" onclick="showView('shop'); return false;" class="view-all-link">All products &rarr;</a>
+                </div>
+
+                <div class="product-grid" id="featured-products-grid"></div>
+            </div>
+
+            <div class="categories-dark-section">
+                <div class="container">
+                    <span class="section-subtitle">SHOP BY CHAPTER</span>
+                    <h3 class="section-title" style="color:white; margin-top:4px;">Categories</h3>
+                    <div class="categories-grid">
+                        <div class="cat-card-large" onclick="showView('shop'); filterShopCategory('Hijabs');">
+                            <img src="/Product images/noir-silk.jpg" alt="Hijabs">
+                            <div class="cat-card-content">
+                                <h4 class="cat-card-title">Hijabs</h4>
+                                <p class="cat-card-desc">Silk, chiffon, and modal — cut to drape.</p>
+                            </div>
+                        </div>
+                        <div class="cat-card-large" onclick="showView('shop'); filterShopCategory('Hampers');">
+                            <img src="/Product images/luxury-hamper.jpg" alt="Hampers">
+                            <div class="cat-card-content">
+                                <h4 class="cat-card-title">Hampers</h4>
+                                <p class="cat-card-desc">Boxed edits for Eid, nikkah, and just because.</p>
+                            </div>
+                        </div>
+                        <div class="cat-card-large" onclick="showView('shop'); filterShopCategory('Bouquets');">
+                            <img src="/Product images/tulip-bouquet.jpg" alt="Bouquets">
+                            <div class="cat-card-content">
+                                <h4 class="cat-card-title">Bouquets</h4>
+                                <p class="cat-card-desc">Florals wrapped in hijab she can keep.</p>
+                            </div>
+                        </div>
+                        <div class="cat-card-large" onclick="showView('shop'); filterShopCategory('Pins');">
+                            <img src="/Product images/pearl-pins.jpg" alt="Pins">
+                            <div class="cat-card-content">
+                                <h4 class="cat-card-title">Pins</h4>
+                                <p class="cat-card-desc">Pearl, crystal, and gold — small and sure.</p>
+                            </div>
+                        </div>
+                        <div class="cat-card-large" onclick="showView('shop'); filterShopCategory('Nameplates');">
+                            <img src="/Product images/nameplate.jpg" alt="Nameplates">
+                            <div class="cat-card-content">
+                                <h4 class="cat-card-title">Nameplates</h4>
+                                <p class="cat-card-desc">Personalised gold-frame pieces.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonials-section">
+                <div class="sparkle-icon">✦</div>
+                <h3 class="testimonials-title">Served 5k+ satisfied customers</h3>
+                <p class="testimonials-subtitle">From first hijab to wedding hamper — packed in Bhiwandi, sent across India, opened with the same care we folded it.</p>
+
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <p class="review-text">“The tulip bouquet arrived looking like the highlight reel. Kept the hijab, gifted the flowers.”</p>
+                        <p class="review-author">AYESHA · MUMBAI</p>
+                    </div>
+                    <div class="review-card">
+                        <p class="review-text">“Noir silk is the one I wear to every walima now. Drape is clean, colour is true.”</p>
+                        <p class="review-author">FATIMA · PUNE</p>
+                    </div>
+                    <div class="review-card">
+                        <p class="review-text">“Ordered the gold hamper for my sister's nikkah. Packaging felt considered, not loud.”</p>
+                        <p class="review-author">ZARA · BHIWANDI</p>
+                    </div>
+                </div>
+
+                <div class="features-banner">
+                    <div class="feature-item">
+                        <div class="feature-icon-box">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <div>
+                            <h5 class="feature-title">Bhiwandi atelier</h5>
+                            <p class="feature-desc">Packed here. Shipped pan India on prepaid orders.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon-box">
+                            <svg class="icon" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                        </div>
+                        <div>
+                            <h5 class="feature-title">Dispatch with care</h5>
+                            <p class="feature-desc">Hampers and bouquets leave in rigid boxes, not poly mailers.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon-box">
+                            <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
+                        </div>
+                        <div>
+                            <h5 class="feature-title">House policy</h5>
+                            <p class="feature-desc">No COD. No refund. No return. Please measure twice.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="policy-pill-bar">
+                    <span class="policy-pill">NO COD · NO REFUND · NO RETURN</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEDICATED SHOP PAGE / VIEW -->
+        <section id="view-shop" class="view-section">
+            <div class="shop-header">
+                <span class="shop-header-sub">THE ATELIER</span>
+                <h1 class="shop-header-title">Shop</h1>
+                <p class="shop-header-desc">Hijabs, hampers, bouquets, pins, and nameplates — filter by chapter or search by name.</p>
+            </div>
+
+            <div class="shop-controls-bar">
+                <div class="filter-pills">
+                    <button class="filter-pill active" onclick="filterShopCategory('All')">All</button>
+                    <button class="filter-pill" onclick="filterShopCategory('Hijabs')">Hijabs</button>
+                    <button class="filter-pill" onclick="filterShopCategory('Hampers')">Hampers</button>
+                    <button class="filter-pill" onclick="filterShopCategory('Bouquets')">Bouquets</button>
+                    <button class="filter-pill" onclick="filterShopCategory('Pins')">Pins</button>
+                    <button class="filter-pill" onclick="filterShopCategory('Nameplates')">Nameplates</button>
+                </div>
+
+                <div class="search-box-wrapper">
+                    <svg class="search-icon icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" id="shop-search-input" class="shop-search-input" placeholder="Search the edit" oninput="handleShopSearch(this.value)">
+                </div>
+            </div>
+
+            <div class="shop-meta-bar">
+                <div class="pieces-count"><span id="shop-pieces-count">0</span> pieces</div>
+            </div>
+
+            <div class="product-grid" id="full-shop-products-grid"></div>
+        </section>
+
+        <!-- PRODUCT DETAIL VIEW -->
+        <section id="view-product" class="view-section">
+            <div class="product-detail-view" id="product-detail-container" style="position: relative;"></div>
+            <button class="close-product-btn" onclick="showView('shop')" aria-label="Close product view">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </section>
+
+        <!-- CART VIEW -->
+        <section id="view-cart" class="view-section">
+            <div class="cart-page">
+                <span class="section-subtitle">YOUR BAG</span>
+                <h2 class="cart-header-title">Cart</h2>
+                <p class="cart-subtext">Review quantities, then proceed to checkout. Orders are placed on WhatsApp.</p>
+                <div id="cart-content-area"></div>
+            </div>
+        </section>
+
+        <!-- CHECKOUT VIEW -->
+        <section id="view-checkout" class="view-section">
+            <div class="checkout-page">
+                <span class="section-subtitle">ALMOST THERE</span>
+                <h2 class="cart-header-title" style="margin-bottom: 8px;">Checkout</h2>
+                <p class="cart-subtext" style="margin-bottom: 32px;">We place every order on WhatsApp. Prepaid only — no COD, refund, or return.</p>
+
+                <div class="checkout-grid">
+                    <div class="form-card">
+                        <h3 style="font-family: var(--font-serif); font-size: 24px; margin-bottom: 20px;">Delivery details</h3>
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label class="form-label">Full name</label>
+                                <input type="text" id="cust-name" class="form-input" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Phone</label>
+                                <input type="text" id="cust-phone" class="form-input" placeholder="10-digit mobile">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Address</label>
+                            <textarea id="cust-address" class="form-textarea" rows="3"></textarea>
+                        </div>
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label class="form-label">City</label>
+                                <input type="text" id="cust-city" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Pincode</label>
+                                <input type="text" id="cust-pincode" class="form-input">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Note for Shifan (optional)</label>
+                            <input type="text" id="cust-note" class="form-input" placeholder="Nameplate text, colour preference, gift message">
+                        </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:20px;">
+                        <div class="cart-summary-card">
+                            <h3 class="summary-title">Order</h3>
+                            <div id="checkout-order-summary"></div>
+                            <div class="summary-row total">
+                                <span>Total</span>
+                                <span id="checkout-total-price">₹0</span>
+                            </div>
+                        </div>
+                        <div class="whatsapp-banner-box">
+                            No COD · No refund · No return. Placing the order opens WhatsApp with a pre-filled message for Hijab by Shifan.
+                        </div>
+                        <button class="btn-whatsapp-place" onclick="submitOrderToWhatsApp()">
+                            Place order via WhatsApp
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ORDER CONFIRMATION VIEW -->
+        <section id="view-confirmation" class="view-section">
+            <div class="order-confirmation-container" id="confirmation-content-area"></div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="logo-container" style="margin-bottom: 16px;">
+                        <div class="logo-badge">HbS</div>
+                        <div class="logo-text">
+                            <h1 style="font-size:18px;">Hijab by Shifan</h1>
+                            <span>BE EXCLUSIVE. BE BOLD. BE YOU</span>
+                        </div>
+                    </div>
+                    <p style="font-size: 13px; color: var(--text-muted); max-width: 320px; line-height: 1.6;">
+                        Premium hijabs, hampers, and bouquets from Bhiwandi. Shipped pan India. Be exclusive. Be bold. Be you.
+                    </p>
+                    <a href="#" class="whatsapp-community-btn">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                        Join the WhatsApp community
+                    </a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>ATELIER</h4>
+                    <ul class="footer-links" style="color: var(--text-muted); font-size: 13px;">
+                        <li style="display:flex; gap:8px; align-items:center;"><svg class="icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Bhiwandi · Shipping pan India</li>
+                        <li style="display:flex; gap:8px; align-items:center;"><svg class="icon" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>Prepaid orders only</li>
+                        <li style="display:flex; gap:8px; align-items:center;"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg> No COD · No refund · No return</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                Hijab by Shifan · Hello Hijabi
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
